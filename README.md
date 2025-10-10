@@ -1,12 +1,8 @@
 # Trabalho Prático Listas Dinâmicas
 O objetivo do presente trabalho está em possibilitar a compreensão do funcionamento e das aplicações dos quatro principais tipos de listas dinâmicas:
-
     • Lista Simplesmente Encadeada;
-
     • Lista Duplamente Encadeada;
-
     • Lista Circular Simples;
-
     • Lista Duplamente Circular.
 
 # Descrição da Atividade
@@ -21,13 +17,9 @@ O objetivo do presente trabalho está em possibilitar a compreensão do funciona
 2. Implementar quatro exemplos práticos distintos, um para cada tipo de lista.
 
 Sugestões:
-
     • Lista Simplesmente Encadeada: fila de impressão, log de eventos, cadastro linear.
-
     • Lista Duplamente Encadeada: histórico de navegação, desfazer/refazer, deque.
-
     • Lista Circular Simples: rodízio de tarefas, jogo de cadeiras, escalonador deprocessos.
-
     • Lista Duplamente Circular: playlist com avanço e retrocesso, carrossel de imagens, rodadas de campeonato.
 
 3. Apresentar um relatório técnico contendo:
