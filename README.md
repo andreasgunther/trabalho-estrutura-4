@@ -1,5 +1,5 @@
 # Trabalho Prático Listas Dinâmicas
-Este trabalho tem como objetivo o compreender do funcionamento e as aplicações dos quatro principais tipos de listas dinâmicas:
+O objetivo do presente trabalho está em possibilitar a compreensão do funcionamento e das aplicações dos quatro principais tipos de listas dinâmicas:
 
     • Lista Simplesmente Encadeada;
 
