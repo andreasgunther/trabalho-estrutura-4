@@ -12,6 +12,8 @@ O objetivo do presente trabalho está em possibilitar a compreensão do funciona
 # Descrição da Atividade
 1. Elaborar uma explicação técnica sobre cada tipo de lista, incluindo:
 
+Estrutura:
+
     • Estrutura do nó e do encadeamento;
 
     • Operações principais (inserção, remoção, busca, exibição);
@@ -27,10 +29,12 @@ Sugestões:
     • Lista Duplamente Encadeada: histórico de navegação, desfazer/refazer, deque.
 
     • Lista Circular Simples: rodízio de tarefas, jogo de cadeiras, escalonador deprocessos.
-    
+
     • Lista Duplamente Circular: playlist com avanço e retrocesso, carrossel de imagens, rodadas de campeonato.
 
 3. Apresentar um relatório técnico contendo:
+
+Counteúdo:
 
     • Descrição e justificativa do exemplo prático de cada tipo;
 
@@ -41,10 +45,10 @@ Sugestões:
 4. Demonstrar o funcionamento de cada programa, com inserção, remoção e exibição, incluindo casos de borda.
 
 # Requisitos Técnicos
-• Implementação manual das listas (sem uso de bibliotecas prontas);
+    • Implementação manual das listas (sem uso de bibliotecas prontas);
 
-• Validação de alocação dinâmica e liberação correta da memória;
+    • Validação de alocação dinâmica e liberação correta da memória;
 
-• Estrutura de pastas organizada:
+    • Estrutura de pastas organizada:
 
-– lista_simples/, lista_dupla/, lista_circular/, lista_dupla_circular/.
+    – lista_simples/, lista_dupla/, lista_circular/, lista_dupla_circular/.
