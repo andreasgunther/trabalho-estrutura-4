@@ -1,5 +1,5 @@
 # Trabalho Prático Listas Dinâmicas
-Compreender o funcionamento e as aplicações dos quatro principais tipos de listas dinâmicas:
+Este trabalho tem como objetivo o compreender do funcionamento e as aplicações dos quatro principais tipos de listas dinâmicas:
 
     • Lista Simplesmente Encadeada;
 
@@ -38,8 +38,7 @@ Sugestões:
 
     • Comparação entre os tipos de listas.
 
-4. Demonstrar o funcionamento de cada programa, com inserção, remoção e exibição,
-incluindo casos de borda.
+4. Demonstrar o funcionamento de cada programa, com inserção, remoção e exibição, incluindo casos de borda.
 
 # Requisitos Técnicos
 • Implementação manual das listas (sem uso de bibliotecas prontas);
@@ -49,6 +48,3 @@ incluindo casos de borda.
 • Estrutura de pastas organizada:
 
 – lista_simples/, lista_dupla/, lista_circular/, lista_dupla_circular/.
-
-# Observação Final
-A clareza, criatividade e justificativas técnicas terão peso decisivo na nota final. O objetivo é que o estudante demonstre domínio conceitual e prático sobre as estruturas encadeadas.
