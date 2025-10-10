@@ -32,7 +32,7 @@ Sugestões:
 
     • Lista Duplamente Circular: playlist com avanço e retrocesso, carrossel de imagens, rodadas de campeonato.
 
-3. Apresentar um relatório técnico contendo:
+3. Apresentar um relatório técnico:
 
 Counteúdo:
 
