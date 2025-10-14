@@ -173,10 +173,10 @@ void print01() {
 }
 
 void print02() {
-    printf("                  \n");
-    printf("          /\\_/\\ \n");
-    printf("         ( o.o )\n");
-    printf("          > ^ < \n\n");
+    printf("                       \n");
+    printf("          /\\_/\\      \n");
+    printf("         ( o.o )       \n");
+    printf("          > ^ <       \n\n");
 }
 
 void print03() {
