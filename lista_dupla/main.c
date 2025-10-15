@@ -3,7 +3,7 @@
 #include "lista.h"
 
 int main(){
-    struct Musica *playlist = NULL; //ponteiro para início da playlist
+    struct Musica *atual = NULL, *playlist = NULL; //ponteiro para início da playlist
     int n;
     do {
         system("clear");
@@ -14,7 +14,10 @@ int main(){
         printf("[3] - Remover primeira música\n");
         printf("[4] - Remover ultima música\n");
         printf("[5] - Buscar música\n");
-        printf("[6] - Imprimir playlist\n");
+        printf("[6] - Passar música\n");
+        printf("[7] - Música atual\n");
+        printf("[8] - Voltar música\n");
+        printf("[9] - Imprimir playlist\n");
         printf("====================================\n");
         printf("Escolha uma opção: ");
         scanf("%d", &n);
@@ -25,6 +28,7 @@ int main(){
             
             case 1:
                 inserir_inicio(&playlist);
+                atual = playlist;
                 break;
 
             case 2:
@@ -44,6 +48,18 @@ int main(){
                 break;
 
             case 6:
+                passar_musica(&atual);
+                break;
+
+            case 7:
+                musica_atual(&atual);
+                break;
+
+            case 8:
+                voltar_musica(&atual);
+                break;
+
+            case 9:
                 imprimir(playlist);
                 break;
 
