@@ -134,6 +134,48 @@ struct Musica* buscar(struct Musica **playlist){
     return NULL;
 }
 
+void passar_musica(struct Musica **atual){
+    if(*atual == NULL){
+        printf("Playlist vazia!\n");
+    }
+    else if((*atual)->prox == NULL){
+        printf("Você já está na última música da playlist!\n");
+    }
+    else {
+        *atual = (*atual)->prox;
+        printf("Música atual: %s\n", (*atual)->nome);
+    }   
+    printf("Pressione Enter para continuar\n");
+    getchar(); getchar();
+}
+
+void musica_atual(struct Musica **atual){
+    if (*atual == NULL){
+        printf("Playlist vazia!\n"); 
+    }
+    else {
+        printf("Música atual: %s\n", (*atual)->nome);
+    }
+    printf("Pressione Enter para continuar\n");
+    getchar(); getchar();
+}
+
+void voltar_musica(struct Musica **atual){
+    if(*atual == NULL){
+        printf("Playlist vazia!\n"); 
+    }
+    else if((*atual)->ante == NULL){
+        printf("Você já está na primeira música da playlist!\n");
+    }
+
+    else {
+        *atual = (*atual)->ante;
+        printf("Música atual: %s\n", (*atual)->nome);
+    }
+    printf("Pressione Enter para continuar\n");
+    getchar(); getchar();
+}
+
 void imprimir(struct Musica *playlist){
     struct Musica *aux = playlist;
     while (aux != NULL){
