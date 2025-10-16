@@ -205,15 +205,16 @@ void show(Node *head) {
         do {
             partialFrame();
             printf("Nome: %s\n", node->label);
-            if (no == 0) {
+            switch (no){
+            case 0:
                 print01();
-                no++;
-            } else if (no == 1) {
+                break;
+            case 1:
                 print02();
-                no++;
-            } else {
+                break;
+            default:
                 print03();
-                no = 0;
+                break;
             }
             printf("[1] Retroceder\n");
             printf("[2] Avancar\n");
@@ -222,8 +223,18 @@ void show(Node *head) {
             scanf("%d", &simbol);
             if (simbol == 2){
                 node = node->next;
+                if (no == 2) {
+                    no = 0;
+                } else {
+                    no++;
+                }
             } else if (simbol == 1) {
                 node = node->prev;
+                if (no == 0) {
+                    no = 2;
+                } else {
+                    no--;
+                }
             } else {
                 choice = 0;
             }
