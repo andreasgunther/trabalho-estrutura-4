@@ -75,6 +75,38 @@ void remover_inicio(struct Musica **playlist){
     getchar(); getchar();
 }
 
+void remover_atual(struct Musica **atual, struct Musica **playlist){
+    struct Musica *remover;
+    if (*atual == NULL){
+        printf("Playlist vazia!\n");
+        printf("Pressione Enter para continuar\n");
+        getchar(); getchar();
+        return;
+    }
+    else {
+        remover = *atual;
+        if (remover->ante != NULL){
+            remover->ante->prox = remover->prox;
+        }
+        else{
+            *playlist = remover->prox;
+        }
+        if (remover->prox != NULL){
+            remover->prox->ante = remover->ante;
+        }
+        if (remover->prox != NULL){
+            *atual = remover->prox;
+        }
+        else{
+            *atual = remover->ante;
+        }
+        free(remover);
+        printf("Música removida!\n");
+    }
+    printf("Pressione Enter para continuar\n");
+    getchar(); getchar();
+}
+
 void remover_final(struct Musica **playlist){
     struct Musica *aux, *remover;
     if (*playlist == NULL) {
@@ -149,7 +181,7 @@ void passar_musica(struct Musica **atual){
     getchar(); getchar();
 }
 
-void musica_atual(struct Musica **atual){
+void musica_atual(struct Musica **atual, struct Musica **playlist){
     if (*atual == NULL){
         printf("Playlist vazia!\n"); 
     }
