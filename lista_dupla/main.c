@@ -12,12 +12,13 @@ int main(){
         printf("[1] - Inserir música no início\n");
         printf("[2] - Inserir música no final\n");
         printf("[3] - Remover primeira música\n");
-        printf("[4] - Remover ultima música\n");
-        printf("[5] - Buscar música\n");
-        printf("[6] - Passar música\n");
-        printf("[7] - Música atual\n");
-        printf("[8] - Voltar música\n");
-        printf("[9] - Imprimir playlist\n");
+        printf("[4] - Remover música atual\n");
+        printf("[5] - Remover ultima música\n");
+        printf("[6] - Buscar música\n");
+        printf("[7] - Passar música\n");
+        printf("[8] - Música atual\n");
+        printf("[9] - Voltar música\n");
+        printf("[10] - Imprimir playlist\n");
         printf("====================================\n");
         printf("Escolha uma opção: ");
         scanf("%d", &n);
@@ -40,26 +41,30 @@ int main(){
                 break;
 
             case 4:
-                remover_final(&playlist);
+                remover_atual(&atual, &playlist);
                 break;
 
             case 5:
-                buscar(&playlist);
+                remover_final(&playlist);
                 break;
 
             case 6:
-                passar_musica(&atual);
+                buscar(&playlist);
                 break;
 
             case 7:
-                musica_atual(&atual);
+                passar_musica(&atual);
                 break;
 
             case 8:
-                voltar_musica(&atual);
+                musica_atual(&atual, &playlist);
                 break;
 
             case 9:
+                voltar_musica(&atual);
+                break;
+
+            case 10:
                 imprimir(playlist);
                 break;
 
