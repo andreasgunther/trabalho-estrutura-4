@@ -210,11 +210,13 @@ void voltar_musica(struct Musica **atual){
 
 void imprimir(struct Musica *playlist){
     struct Musica *aux = playlist;
+    printf("NULL <--> "); //inicio
     while (aux != NULL){
         printf("%s <--> ", aux->nome);
         aux = aux->prox;
     }
-    printf("NULL\n");
+    printf("NULL\n"); //final
     printf("Pressione Enter para continuar\n");
     getchar(); getchar();
 }
+
