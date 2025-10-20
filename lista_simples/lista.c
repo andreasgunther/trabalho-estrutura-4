@@ -87,6 +87,7 @@ int criar_lista(No **head){
                 aux->proximo = tp;
                 aux = tp; 
             }
+            system("clear");
         }
     }
     return 0;
@@ -219,7 +220,7 @@ int final_lista(No *head){
     }
 
     aux->proximo = malloc(sizeof(No));
-    if(aux == NULL){
+    if(aux->proximo == NULL){
          printf("Falha na alocação de memória. Encerrando...\n");
          return 1;
     }
