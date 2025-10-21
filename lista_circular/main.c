@@ -35,6 +35,15 @@ int main(){
                 printf("Resultado do sistema: %d\n", valor);
             }
             break;
+        case 6:
+            remocao_final(&head);
+            break;
+         case 7:
+            busca_aviao(&head);
+            break;
+        case 8:
+            exibir(head);
+            break;
         case 0:
             c = 2;
             break;

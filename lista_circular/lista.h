@@ -17,5 +17,8 @@ void listar(No **head);
 int inicil_lista(No **head);
 void remocao_inicil(No **head);
 int final_lista(No *head);
+void remocao_final(No **head);
+void busca_aviao(No **head);
+void exibir(No *head);
 
 #endif
