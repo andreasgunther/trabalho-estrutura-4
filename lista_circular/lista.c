@@ -169,15 +169,16 @@ void listar(No **head){
 
 int inicil_lista(No **head){
 
-    No *aux, *ahead = *head, *haux;
+    
+     No *aux, *ahead = *head;
 
-    *head = malloc(sizeof(No*));
-    if(*head == NULL){
-         printf("Falha na alocação de memória. Encerrando...\n");
-         return 1;
+    *head = malloc(sizeof(No));
+    if (*head == NULL) {
+        printf("Falha na alocação de memória. Encerrando...\n");
+        return 1;
     }
 
-    aux = (*head);
+    aux = *head;
 
     printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
     printf("┃              PASSAGEM AÉREA            ┃\n");
@@ -186,8 +187,8 @@ int inicil_lista(No **head){
     scanf("%d%*c", &aux->Naviao);
 
     printf("┃ Cidade de saída: ");
-    fgets(aux->saida , sizeof(aux->saida), stdin);
-    aux->saida[strcspn(aux->saida,"\n")] = '\0';  // remove o '\n' se existir
+    fgets(aux->saida, sizeof(aux->saida), stdin);
+    aux->saida[strcspn(aux->saida, "\n")] = '\0';
 
     printf("┃ Destino: ");
     fgets(aux->destino, sizeof(aux->destino), stdin);
@@ -202,11 +203,20 @@ int inicil_lista(No **head){
 
     printf("└────────────────────────────────────────┘\n");
 
-    while (aux->proximo != ahead) {
-        aux = aux->proximo;
+
+    No *ultimo = ahead;
+    while (ultimo->proximo != ahead) {
+        ultimo = ultimo->proximo;
     }
-    aux->proximo = *head;
+
+    ultimo->proximo = aux;
+    aux->proximo = ahead;
+
+    *head = aux;
+
+    return 0;
 }
+
 
 void remocao_inicil(No **head){
 
@@ -335,8 +345,9 @@ void remocao_final(No **head){
 }
 
 void busca_aviao(No **head){
-     system("clear");
+    system("clear");
     int a = 1;
+    int b = 0;
     No *aux = *head;
 
     printf("Número do avião: ");
@@ -353,21 +364,23 @@ void busca_aviao(No **head){
             printf("┃ Preço (R$ inteiro): %d \n", aux->preco);
             printf("┃ Data (DD/MM/AAAA): %s \n", aux->data);
             printf("└────────────────────────────────────────┘\n");
-            printf("\n");
-            printf("\nPressione ENTER para voltar ao menu.\n");
-            getchar();
-            return;
+            b++;
         }
         aux = aux->proximo; 
-    } while (aux->proximo != *head && aux != NULL);
+    } while (aux 
+        != *head);
     
-
+    if(b == 0){
     printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
     printf("┃  ESTE AVIÃO NÃO CONSTA NA LISTA DE VOOS  ┃\n");
     printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
     printf("\nPressione ENTER para voltar ao menu.\n");
     getchar();
     return;
+    }
+    printf("\n");
+    printf("\nPressione ENTER para voltar ao menu.\n");
+    getchar();
 }
 
 void exibir(No *head){
