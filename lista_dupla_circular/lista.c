@@ -155,10 +155,10 @@ void search(Node *head, char label[]) {
     } while (node != head);
 
     if (cnt > 0) {
-        printf("%s esta na lista!\n", label);
+        printf("%s.png esta na lista!\n", label);
         printf("Aparece %d vezes...\n", cnt);
     } else {
-        printf("%s nao esta na lista!\n", label);
+        printf("%s.png nao esta na lista!\n", label);
     }
 }
 
@@ -204,7 +204,7 @@ void show(Node *head) {
     if (choice == 1) {
         do {
             partialFrame();
-            printf("Nome: %s\n", node->label);
+            printf("Arquivo: %s.png\n", node->label);
             switch (no){
             case 0:
                 print01();
@@ -245,7 +245,7 @@ void show(Node *head) {
 
     do {
         partialFrame();
-        printf("Nome: %s\n", node->label);
+        printf("Arquivo: %s.png\n", node->label);
         if (no == 0) {
             print01();
             no++;
