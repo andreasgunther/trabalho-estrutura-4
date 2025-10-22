@@ -155,10 +155,10 @@ void search(Node *head, char label[]) {
     } while (node != head);
 
     if (cnt > 0) {
-        printf("%s esta na lista!\n", label);
+        printf("%s.png esta na lista!\n", label);
         printf("Aparece %d vezes...\n", cnt);
     } else {
-        printf("%s nao esta na lista!\n", label);
+        printf("%s.png nao esta na lista!\n", label);
     }
 }
 
