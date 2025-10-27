@@ -185,7 +185,7 @@ void passar_musica(struct Musica **atual){
 void tocar_musica(struct Musica **atual) {
     struct Musica *musica_atual = *atual;
     while (musica_atual != NULL) {
-        printf("=========================================\n");
+        printf("\n=========================================\n");
         printf("Tocando agora: %s \n", musica_atual->nome);
         printf("\n[<<]    [||]    [>>]\n");
         printf("=========================================\n");
@@ -194,7 +194,7 @@ void tocar_musica(struct Musica **atual) {
         int num_simbolos = 4;
 
         for (int i = 1; i <= duracao; i++) {
-            printf("\r%s  [%d / %d] %s", simbolo[i % num_simbolos], i, duracao, simbolo[ i % num_simbolos]);
+            printf("\r%s  [00:%d / 00:%d] %s", simbolo[i % num_simbolos], i, duracao, simbolo[ i % num_simbolos]);
             fflush(stdout); //atualiza o terminal imediatamente
             sleep(1); //espera 1s entre os simbolos
         }
@@ -240,3 +240,4 @@ void imprimir(struct Musica *playlist){
     printf("Pressione Enter para continuar\n");
     getchar(); getchar();
 }
+
