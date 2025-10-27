@@ -2,9 +2,9 @@
 #define LISTA_H
 
 struct Musica {
-    char nome[100]; //armazena o nome da música
-    struct Musica *prox; //ponteiro para o próximo nó (música seguinte)
-    struct Musica *ante; //ponteiro para o nó anterior (música anterior)
+    char nome[100];
+    struct Musica *prox;
+    struct Musica *ante;
 };
 
 // Protótipos das funções
@@ -15,9 +15,8 @@ void remover_atual(struct Musica **atual, struct Musica **playlist);
 void remover_final(struct Musica **playlist);
 struct Musica* buscar(struct Musica **playlist); //tipo struct porque retona um ponteiro para struct
 void passar_musica(struct Musica **atual);
-void musica_atual(struct Musica **atual, struct Musica **playlist);
+void tocar_musica(struct Musica **atual);
 void voltar_musica(struct Musica **atual);
 void imprimir(struct Musica *playlist);
 
 #endif
-
