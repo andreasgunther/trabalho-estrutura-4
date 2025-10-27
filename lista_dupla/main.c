@@ -16,7 +16,7 @@ int main(){
         printf("[5] - Remover ultima música\n");
         printf("[6] - Buscar música\n");
         printf("[7] - Passar música\n");
-        printf("[8] - Música atual\n");
+        printf("[8] - Tocar música atual\n");
         printf("[9] - Voltar música\n");
         printf("[10] - Imprimir playlist\n");
         printf("====================================\n");
@@ -57,7 +57,7 @@ int main(){
                 break;
 
             case 8:
-                musica_atual(&atual, &playlist);
+                tocar_musica(&atual);
                 break;
 
             case 9:
