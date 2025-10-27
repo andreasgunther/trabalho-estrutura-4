@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>   // para sleep()
 #include <string.h>
 #include "lista.h"
 
@@ -181,13 +182,33 @@ void passar_musica(struct Musica **atual){
     getchar(); getchar();
 }
 
-void musica_atual(struct Musica **atual, struct Musica **playlist){
-    if (*atual == NULL){
-        printf("Playlist vazia!\n"); 
+void tocar_musica(struct Musica **atual) {
+    struct Musica *musica_atual = *atual;
+    while (musica_atual != NULL) {
+        printf("=========================================\n");
+        printf("Tocando agora: %s \n", musica_atual->nome);
+        printf("\n[<<]    [||]    [>>]\n");
+        printf("=========================================\n");
+        int duracao = 10; // 10 segundos
+        char *simbolo[] = {"♬  ", " ♪ ", "  ♬", " ♪ "};
+        int num_simbolos = 4;
+
+        for (int i = 1; i <= duracao; i++) {
+            printf("\r%s  [%d / %d] %s", simbolo[i % num_simbolos], i, duracao, simbolo[ i % num_simbolos]);
+            fflush(stdout); //atualiza o terminal imediatamente
+            sleep(1); //espera 1s entre os simbolos
+        }
+        printf("\nMúsica terminou!\n");
+        if (musica_atual->prox != NULL) {
+            musica_atual = musica_atual->prox;
+            printf("Iniciando próxima música: %s\n", musica_atual->nome);
+            sleep(1);
+        } else {
+            printf("Fim da playlist.\n");
+            break;
+        }
     }
-    else {
-        printf("Música atual: %s\n", (*atual)->nome);
-    }
+    *atual = musica_atual; // atualiza o ponteiro para que a música atual seja aonde o player parou
     printf("Pressione Enter para continuar\n");
     getchar(); getchar();
 }
@@ -219,4 +240,3 @@ void imprimir(struct Musica *playlist){
     printf("Pressione Enter para continuar\n");
     getchar(); getchar();
 }
-
