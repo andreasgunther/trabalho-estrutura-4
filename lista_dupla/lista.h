@@ -9,7 +9,7 @@ struct Musica {
 
 // Protótipos das funções
 void inserir_inicio(struct Musica **playlist);
-void inserir_final(struct Musica **playlist);
+void inserir_final(struct Musica **playlist, struct Musica **atual);
 void remover_inicio(struct Musica **playlist);
 void remover_atual(struct Musica **atual, struct Musica **playlist);
 void remover_final(struct Musica **playlist);
