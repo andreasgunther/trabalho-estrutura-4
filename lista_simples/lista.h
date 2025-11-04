@@ -12,8 +12,8 @@ typedef struct No{
 int  menu(No *head, int valor);
 int criar_lista(No **head);
 void listar(No **head);
-int inicil_lista(No **head);
-void remocao_inicil(No **head);
+int inicio_lista(No **head);
+void remocao_inicio(No **head);
 int final_lista(No *head);
 void remocao_final(No **head);
 void busca_casa(No **head);
