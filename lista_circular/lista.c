@@ -1,26 +1,26 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/select.h>
+#include <sys/select.h> //para detectar o enter sem que o carrosel seja bloqueado
 #include <unistd.h>
 #include "lista.h"
-#include <sys/types.h>
+#include <sys/types.h> //define tipos usados pelo SO
 
-static int enter_pressed_now(void){
+static int enter_pressed_now(void){ //verifica se o usuário apertou enter
     struct timeval tv;
-    fd_set rfds;
-    tv.tv_sec = 0;
-    tv.tv_usec = 0;
-    FD_ZERO(&rfds);
-    FD_SET(0, &rfds); 
-    if (select(1, &rfds, NULL, NULL, &tv) > 0) {
+    fd_set rfds; //cria um conjunto de descritores monitorados(conjunto de entradas que o SO pode disponibilizar para leitura )
+    tv.tv_sec = 0; //segundos
+    tv.tv_usec = 0; //microsegundos
+    FD_ZERO(&rfds); //inicializa o conjunto vazio/limpa ele
+    FD_SET(0, &rfds); //adiciona o stdin(teclado) no conjunto para monitoramento
+    if (select(1, &rfds, NULL, NULL, &tv) > 0) { //o select verifica se tem algo a ser lido
         int c = getchar(); 
         return (c == '\n' || c == '\r');
     }
     return 0;
 }
 
-static void drain_stdin(void){
+static void drain_stdin(void){ //limpa todo o buffer do teclado
     struct timeval tv;
     fd_set rfds;
     for(;;){
@@ -142,7 +142,7 @@ void listar(No **head){
 
      if (*head == NULL) {
         printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-        printf("┃        NENHUMA ENTREGA CADASTRADA        ┃\n");
+        printf("┃        NENHUMA PASSAGEM CADASTRADA       ┃\n");
         printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
         return;
     }
@@ -167,7 +167,7 @@ void listar(No **head){
     getchar();
 }
 
-int inicil_lista(No **head){
+int inicio_lista(No **head){
 
     
      No *aux, *ahead = *head;
@@ -218,12 +218,12 @@ int inicil_lista(No **head){
 }
 
 
-void remocao_inicil(No **head){
+void remocao_inicio(No **head){
 
     
     No *headAtual = *head;              
     No *aux = headAtual;  
-    if (headAtual->proximo == headAtual) {
+    if (headAtual->proximo == *head) {
         free(headAtual);
         *head = NULL;
 
@@ -232,6 +232,7 @@ void remocao_inicil(No **head){
         printf("┃   Itens excluídos.                   ┃\n");
         printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
         printf("\nPressione ENTER para voltar ao menu.\n");
+        getchar();
         getchar();
         system("clear");
 
@@ -262,6 +263,7 @@ void remocao_inicil(No **head){
     printf("┃   Nó inicial removido.               ┃\n");
     printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
     printf("\nPressione ENTER para voltar ao menu.\n");
+    getchar();
     getchar();
     system("clear");
             
