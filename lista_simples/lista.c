@@ -61,7 +61,7 @@ int criar_lista(No **head){
 
         for(int i = 0; i < valor; i++){
             printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-            printf("┃          ENDEREÇO Encomenda %d         ┃\n", i + 1);
+            printf("┃          ENDEREÇO Encomenda %d          ┃\n", i + 1);
             printf("┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩\n");
             printf("┃ Número: ");
             scanf("%d%*c", &aux->nCasa);
@@ -75,7 +75,7 @@ int criar_lista(No **head){
             aux->bairro[strcspn(aux->bairro, "\n")] = '\0';
             printf("└────────────────────────────────────────┘\n");
 
-            if (i + 1 == valor) {
+            if (i + 1 == valor) { //ultimo nó da lista
                 aux->proximo = NULL;
             } else {
                 tp = malloc(sizeof(No));
@@ -105,6 +105,7 @@ void listar(No **head){
         printf("┃ Número: %d\n", aux->nCasa);
         printf("┃ Rua: %s\n", aux->rua);
         printf("┃ Bairro: %s\n", aux->bairro);
+        printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
         a++;
         aux = aux->proximo; 
     }
@@ -113,7 +114,7 @@ void listar(No **head){
     getchar();
 }
 
-void remocao_inicil(No **head){
+void remocao_inicio(No **head){
     No *headAtual = *head;        
     (*head) = (*head)->proximo;
     free(headAtual);
@@ -174,7 +175,7 @@ void remocao_final(No **head){
     system("clear");
 }
 
-int inicil_lista(No **head){
+int inicio_lista(No **head){
 
     No *aux, *novoHead = *head;
 
@@ -233,6 +234,7 @@ int final_lista(No *head){
     printf("┃ Bairro: ");
     fgets(aux->bairro, sizeof(aux->bairro), stdin);
     aux->bairro[strcspn(aux->bairro, "\n")] = '\0';
+    printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
     
     aux->proximo = NULL;
 
@@ -252,18 +254,19 @@ void busca_casa(No **head){
     do{
         if(aux->nCasa == a){
             printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-            printf("┃          ENDEREÇO Encomenda %d          ┃\n", a);
+            printf("┃          ENDEREÇO Encomenda %d         ┃\n", a);
             printf("┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩\n");
             printf("┃ Número: %d\n", aux->nCasa);
             printf("┃ Rua: %s\n", aux->rua);
             printf("┃ Bairro: %s\n", aux->bairro);
+            printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
             b++;
         }
         aux = aux->proximo; 
     } while (aux != NULL);
     
     if(b == 0){
-   printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+    printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
     printf("┃        NENHUMA ENTREGA CADASTRADA        ┃\n");
     printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
     printf("\nPressione ENTER para voltar ao menu.\n");
@@ -275,4 +278,3 @@ void busca_casa(No **head){
     printf("\nPressione ENTER para voltar ao menu.\n");
     getchar();
 }
-
