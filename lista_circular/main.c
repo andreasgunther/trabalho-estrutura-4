@@ -21,13 +21,13 @@ int main(){
             listar(&head);
             break;
         case 3:
-            valor = inicil_lista(&head);
+            valor = inicio_lista(&head);
             if(valor > 0){
                 printf("Resultado do sistema: %d\n", valor);
             }
             break;
         case 4:
-            remocao_inicil(&head);
+            remocao_inicio(&head);
             break;
         case 5:
             valor = final_lista(head);
