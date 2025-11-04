@@ -27,7 +27,7 @@ void inserir_inicio(struct Musica **playlist){
     getchar(); //limpa o buffer
 }
 
-void inserir_final(struct Musica **playlist){
+void inserir_final(struct Musica **playlist, struct Musica **atual){
     struct Musica *aux, *novo = malloc(sizeof(struct Musica));
     if(novo == NULL){
         printf("Erro de alocação!\n");
@@ -40,6 +40,7 @@ void inserir_final(struct Musica **playlist){
     fgets(novo->nome, 100, stdin);
     novo->nome[strcspn(novo->nome, "\n")] = '\0';
     novo->prox = NULL;
+    *atual = novo;
     if(*playlist == NULL){
         *playlist = novo;
         novo->ante = NULL;
@@ -240,4 +241,3 @@ void imprimir(struct Musica *playlist){
     printf("Pressione Enter para continuar\n");
     getchar(); getchar();
 }
-
