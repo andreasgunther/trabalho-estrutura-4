@@ -33,7 +33,7 @@ int main(){
                 break;
 
             case 2:
-                inserir_final(&playlist);
+                inserir_final(&playlist, &atual);
                 break;
 
             case 3:
